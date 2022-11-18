@@ -1,0 +1,98 @@
+// fonts
+$poppins: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
+$roboto: 'Roboto', 'Helvetica Neue', sans-serif;
+
+//colors
+$primary-color: #2aa39e;
+$greenStar: #079893;
+$greenStarHover: rgba(7, 152, 147, 0.8);
+$greenStarLight: #e3fffe61;
+$dbStorm: #2e3a59;
+$bgbitsColor: #121212;
+$black: #000;
+$white: #fff;
+$inputFill: #f1f3f9;
+$inputBorder: #b5bdd3;
+$bgDbStorm: #f9faff;
+$placeholderColor: #9ca8c7;
+$disabledFontColor: #ccc;
+$separatorLineColor: #dfe6fa;
+$shadeOfWhite: #fafafa;
+$errorColor: #e71818;
+$boxShadowColor: rgba(0, 0, 0, 0.05);
+$urgencyColor: #ff8b7b;
+$secondaryGrey: #9f9f9f;
+$lightColor: #070d1d78;
+$yellowWarning: #e7b72dfc;
+$grayIconColor: #3c3c3c;
+$grayColor: #f3f2f2;
+$darkGrayColor: #71798e;
+$lightGrayColor: #f2fafd;
+$backgroundBlue: #070d1d;
+$baseColor: #000000de;
+$textDarkColor: #070d1d;
+$mainTagColor: #fa5c51;
+$subTagColor: #007aff;
+$brightOrange: #ee7105;
+$lightShadeOfGreen: #dbf5f5;
+$lightBorder: #636e89;
+$borderLightColor: #b4bcd0;
+$mainRedColor: #cf2c2c;
+$fontColorLight: #b1b9cd;
+$lightGreen: #3da57a;
+$lighterShadeOfGreenStar: #a6d2c8;
+$red100: #f14031;
+$white900: #f0f3f8;
+$blackColor: #1f2937;
+$ligherGreenColor: #669999;
+$darkerGreenColor: #143535;
+$lighestGrayColor: #f5f5f5;
+$lighterGray: #fafbff;
+$lightGyay: #c4c4c4;
+$bgColor: #fafbfc;
+$lightGrayColorNew: #4b5563;
+$lightGreenColorNew: #f6fcfc;
+$grayColorLight: #e5e5e5;
+$footerDarkColor: #010f0f;
+$darkgreencolor: #047857;
+$darkBlueColor: #1d4ed8;
+$lightHover: #f3f4f6;
+$darkerGray: #323232;
+$ratingStarColor: #fbbf24;
+$premiumStartLearningBg: #eff6ff;
+$premiumStartLearningFont: #1e3a8a;
+$premiumCompleteLearningBg: #ecfdf5;
+$premiumCompleteLearningFont: #064e3b;
+$subBlackColor: #111827;
+$subBgColor: #f5f3ff;
+$subPrimaryColor: #7c3aed;
+$subColorLeft: #8310c9;
+$subColorRight: #5315d9;
+$subBorderColor: #f9fafb;
+$subLigthOrchidColor: #ede9fe;
+$subLigthWhiteColor: #ecfdf5;
+$subTextColor: #1e3a8a;
+$teacherPrimaryLeftColor: #fc8e51;
+$teacherPrimaryRightColor: #f05c58;
+$lightOrangeColor: #fff9f5;
+
+// fontweights
+$fontWeightVeryLight: 200;
+$fontWeightLight: 400;
+$fontWeightMedium: 500;
+$fontWeightMediumDark: 600;
+$fontWeightDark: 700;
+$fontWeightVeryDark: 800;
+$fontWeightultraDark: 900;
+$bottomMargin: 35px;
+
+$idLinearGradient: linear-gradient(136.16deg, #121456 12.91%, #595071 87.68%);
+$goldenLinearGradient: linear-gradient(180deg, #d8922a 0%, #deb67b 100%);
+$yellowLinearGradient: linear-gradient(90.45deg, #fc7004 0%, #fce43c 99.8%);
+$premiumLinearGradient: linear-gradient(90deg,
+    #db9125 0%,
+    #d99a26 25%,
+    #f6ce69 50%,
+    #d99a26 75%,
+    #f6ce69 100%);
+$greenStarGradient: linear-gradient(109.66deg, #38ada9 0.88%, #036a67 100%);
