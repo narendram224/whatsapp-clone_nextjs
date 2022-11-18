@@ -1,10 +1,15 @@
+import { FC, ReactNode } from 'react';
 import styles from './MainLayout.module.scss';
 
-const MainLayout = () => {
+interface IMainLayout {
+  children: ReactNode;
+}
+
+const MainLayout: FC<IMainLayout> = ({ children }) => {
   return (
-    <div id="main_layout" className={styles.mainLayoutContainer}>
-      MainLayout
-    </div>
+    <main id="main_layout" className={styles.mainLayoutContainer}>
+      {children}
+    </main>
   );
 };
 

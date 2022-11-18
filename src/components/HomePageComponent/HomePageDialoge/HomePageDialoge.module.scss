@@ -1,0 +1,14 @@
+.dialogContainer{
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  .topContainer{
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 3rem;
+  }
+  .bottomContainer{
+    background-color: antiquewhite;
+  }
+}
