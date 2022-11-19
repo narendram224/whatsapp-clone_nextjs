@@ -10,6 +10,7 @@ const HomePageHeader = () => {
         width="160px"
         height="100px"
         className={styles.logo}
+        alt="logo"
       />
     </header>
   );
