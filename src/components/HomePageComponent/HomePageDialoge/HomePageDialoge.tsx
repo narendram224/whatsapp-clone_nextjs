@@ -1,10 +1,13 @@
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { MoreVertical, Settings } from 'react-feather';
+import LoginComponent from 'src/components/LoginComponent/LoginComponent';
 import Typography from 'src/components/shared/Typography/Typography';
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
 import styles from './HomePageDialoge.module.scss';
 
 const HomePageDialoge = () => {
+  const { data: session }: any = useSession();
   return (
     <section id="dialog" className={styles.dialogContainer}>
       <div className={styles.topContainer}>
@@ -40,13 +43,20 @@ const HomePageDialoge = () => {
           </ol>
         </div>
         <div className={styles.scannerContainer}>
-          <Image
-            src={ASSETS_OBJ.scan}
-            width="280"
-            height="280px"
-            className={styles.logo}
-            alt="scannerimg"
-          />
+          {session ? (
+            <LoginComponent />
+          ) : (
+            <>
+              <Image
+                src={ASSETS_OBJ.scan}
+                width="280"
+                height="280px"
+                className={styles.logo}
+                alt="scannerimg"
+              />
+              <LoginComponent />
+            </>
+          )}
         </div>
       </div>
       <div className={styles.bottomContainer}>
