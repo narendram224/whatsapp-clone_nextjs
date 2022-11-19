@@ -1,0 +1,12 @@
+.tickActive {
+  background-color: orange;
+  position: relative;
+  .tickicon {
+    position: absolute;
+  }
+  .tickicon2 {
+    position: absolute;
+    left: 8px;
+    top: 3px;
+  }
+}

@@ -1,0 +1,51 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.userListItem {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  border-bottom: 1px solid #eee;
+  gap: 1rem;
+  padding: 0.8rem;
+  align-items: center;
+  margin-top: 0.3rem;
+  &:first-child {
+    border-top: 1px solid #eee;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  .profileImg {
+    border-radius: 50%;
+  }
+  .content {
+    position: relative;
+    .heading {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin: 0;
+      margin-left: 0.8rem;
+      @include textOverflowEllipses(1);
+    }
+    .countContent {
+      position: absolute;
+      right: 0;
+      top: 24px;
+    }
+    .timeContent {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .tickContent {
+      position: absolute;
+      left: -14px;
+      top: 24px;
+    }
+  }
+}

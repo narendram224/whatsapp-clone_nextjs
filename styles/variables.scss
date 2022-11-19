@@ -3,15 +3,18 @@ $poppins: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
 $roboto: 'Roboto', 'Helvetica Neue', sans-serif;
 
 //colors
-$primary: #00a884;;
+$primary: #00a884;
+$grayColorMain: #f1f3f4;
 $greenStar: #079893;
 $greenStarHover: rgba(7, 152, 147, 0.8);
-$greenStarLight: rgba(var(--white-rgb), .1);;
+$greenStarLight: rgba(var(--white-rgb), 0.1);
 $dbStorm: #2e3a59;
 $bgbitsColor: #121212;
 $darkBlue: #3b4a54;
 $black: #000;
 $white: #fff;
+$secondary: #f0f2f5;
+
 $inputFill: #f1f3f9;
 $inputBorder: #b5bdd3;
 $bgDbStorm: #f9faff;
@@ -90,10 +93,12 @@ $bottomMargin: 35px;
 $idLinearGradient: linear-gradient(136.16deg, #121456 12.91%, #595071 87.68%);
 $goldenLinearGradient: linear-gradient(180deg, #d8922a 0%, #deb67b 100%);
 $yellowLinearGradient: linear-gradient(90.45deg, #fc7004 0%, #fce43c 99.8%);
-$premiumLinearGradient: linear-gradient(90deg,
-    #db9125 0%,
-    #d99a26 25%,
-    #f6ce69 50%,
-    #d99a26 75%,
-    #f6ce69 100%);
+$premiumLinearGradient: linear-gradient(
+  90deg,
+  #db9125 0%,
+  #d99a26 25%,
+  #f6ce69 50%,
+  #d99a26 75%,
+  #f6ce69 100%
+);
 $greenStarGradient: linear-gradient(109.66deg, #38ada9 0.88%, #036a67 100%);

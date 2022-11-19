@@ -4,4 +4,5 @@ export const ASSETS_OBJ: any = {
   video: '/static/imgs/videoPlayer.png',
   googleIcon: '/static/imgs/gIcon.png',
   user: '/static/imgs/user.png',
+  landing: '/static/imgs/land.png',
 };
