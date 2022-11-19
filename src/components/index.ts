@@ -3,3 +3,4 @@ export { default as Typography } from './shared/Typography/Typography';
 
 export { default as HomePageHeader } from './HomePageComponent/HomePageHeader/HomePageHeader';
 export { default as HomePageDialoge } from './HomePageComponent/HomePageDialoge/HomePageDialoge';
+export { default as LoginComponent } from './LoginComponent/LoginComponent';
