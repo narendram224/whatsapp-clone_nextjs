@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { MoreVertical, Settings } from 'react-feather';
 import Typography from 'src/components/shared/Typography/Typography';
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
@@ -8,19 +9,22 @@ const HomePageDialoge = () => {
     <section id="dialog" className={styles.dialogContainer}>
       <div className={styles.topContainer}>
         <div>
-          <Typography type="h1">To use WhatsApp on your computer:</Typography>
+          <Typography className={styles.heading} type="h1">
+            To use WhatsApp on your computer:
+          </Typography>
           <ol>
             <li>
               <Typography type="p">Open WhatsApp on your phone</Typography>
             </li>
             <li>
-              <Typography type="p">
+              <Typography type="p" className={styles.customType}>
                 <span>Tap &nbsp;</span>
-                <strong>Menu</strong>
-                <MoreVertical />
-                <strong>Or Settings</strong>
-                <Settings />
-                and select <strong>Linked Devices</strong>
+                <strong className={styles.strong}>Menu</strong>
+                <MoreVertical size={20} className={styles.moreVertical} />
+                <strong className={styles.strong}>Or Settings &nbsp;</strong>
+                <Settings className={styles.moreVertical} />
+                &nbsp; and select &nbsp;{' '}
+                <strong className={styles.strong}>Linked Devices</strong>
               </Typography>
             </li>
             <li>
@@ -35,16 +39,19 @@ const HomePageDialoge = () => {
             </li>
           </ol>
         </div>
-        <div>
+        <div className={styles.scannerContainer}>
           <Image
             src={ASSETS_OBJ.scan}
-            width="300"
-            height="300"
-            alt="scanner image"
+            width="280"
+            height="280px"
+            className={styles.logo}
+            alt="scanner"
           />
         </div>
       </div>
-      <div className={styles.bottomContainer}>Bottom Container</div>
+      <div className={styles.bottomContainer}>
+        <Image src={ASSETS_OBJ.video} width={500} height={300} alt="video" />
+      </div>
     </section>
   );
 };
