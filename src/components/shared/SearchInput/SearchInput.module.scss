@@ -1,0 +1,18 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+  .inputField {
+    border: none;
+    border-radius: 0.26rem;
+    padding: 0.5rem;
+    outline: none;
+    padding-left: 2rem;
+    width: 100%;
+    background-color: #f1f3f4;
+  }
+  .searchIcon {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+}

@@ -1,0 +1,25 @@
+.menuContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  padding: 0.6rem 0.4rem 0.6rem 1.3rem;
+  background-color: $grayColorMain;
+
+  .profileImg {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+  }
+  .userProfileContainer {
+    flex: 1;
+  }
+
+  .itemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+  }
+}
