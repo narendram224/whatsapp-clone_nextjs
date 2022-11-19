@@ -45,7 +45,7 @@ const HomePageDialoge = () => {
             width="280"
             height="280px"
             className={styles.logo}
-            alt="scanner"
+            alt="scannerimg"
           />
         </div>
       </div>
