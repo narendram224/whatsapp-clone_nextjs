@@ -3,6 +3,8 @@ import { actionGenerateOtp } from '../actions/authActions';
 
 const initialState: any = {
   Info: [],
+  selectedDrawer: null,
+  isDrawerActive: false,
 };
 
 export const appSlice = createSlice({
@@ -14,6 +16,12 @@ export const appSlice = createSlice({
     },
     saveDeviceInfo: (state, action: PayloadAction<Object>) => {
       state.deviceInfo = action.payload;
+    },
+    saveSelectedDrawer: (state, action: PayloadAction<string | null>) => {
+      state.selectedDrawer = action.payload;
+    },
+    handleChangeDrawer: (state, action: PayloadAction<boolean>) => {
+      state.isDrawerActive = action.payload;
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -42,6 +50,7 @@ export const appSlice = createSlice({
   },
 });
 
-export const { save, saveDeviceInfo } = appSlice.actions;
+export const { save, saveDeviceInfo, saveSelectedDrawer, handleChangeDrawer } =
+  appSlice.actions;
 
 export default appSlice.reducer;

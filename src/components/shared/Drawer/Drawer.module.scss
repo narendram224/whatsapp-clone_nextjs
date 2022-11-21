@@ -1,0 +1,37 @@
+@import 'styles/variables.scss';
+.drawerContainer {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -700px;
+  width: 400px;
+  z-index: 2;
+  background-color: $secondary;
+  transition: left 0.8s ease-out;
+}
+
+.leftDrawer {
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: $secondary;
+  transition: left 0.8s ease-in;
+  z-index: 2;
+}
+
+.rightDrawer {
+  position: absolute;
+  opacity: 1;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: #c10e00;
+  transition: right 0.8s ease-in;
+  text-align: center;
+  padding: 10px;
+  z-index: 2;
+}

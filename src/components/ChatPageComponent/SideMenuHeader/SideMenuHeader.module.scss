@@ -1,3 +1,4 @@
+@import 'styles/variables.scss';
 .menuContainer {
   display: flex;
   align-items: center;
@@ -6,6 +7,9 @@
 
   padding: 0.6rem 0.4rem 0.6rem 1.3rem;
   background-color: $grayColorMain;
+  position: fixed;
+  z-index: 1;
+  width: 400px;
 
   .profileImg {
     width: 2.3rem;

@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+.editInputContainer {
+  position: relative;
+  .editInput {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    padding-left: 0rem;
+    font-size: 1rem;
+    &:focus {
+      border-bottom: 2px solid $primary-dark;
+    }
+  }
+  .editicon {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    cursor: pointer;
+  }
+}

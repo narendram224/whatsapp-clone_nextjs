@@ -1,0 +1,16 @@
+@import 'styles/variables.scss';
+.editContainer {
+  background-color: $white;
+  padding: 0.8rem 1.4rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  .label {
+    color: $primary-dark;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 0.6rem;
+  }
+  .content {
+    font-size: 0.8rem;
+  }
+}
