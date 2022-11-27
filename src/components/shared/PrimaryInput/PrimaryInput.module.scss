@@ -1,0 +1,15 @@
+@import 'styles/variables.scss';
+.inputContainer {
+  width: 100%;
+  .inputfield {
+    user-select: text;
+    white-space: pre-wrap;
+    word-break: break-word;
+    width: 100%;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 0.8rem;
+    outline: none;
+    border: none;
+  }
+}

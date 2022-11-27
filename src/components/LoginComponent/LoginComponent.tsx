@@ -1,17 +1,35 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { LogOut } from 'react-feather';
+import { IUser } from 'src/interface/userInfo.interface';
+import { actionAddUser } from 'src/redux/actions/authActions';
+import { useAppDispatch } from 'src/redux/store';
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
 import styles from './LoginComponent.module.scss';
 
 const LoginComponent = () => {
   const { data: session }: any = useSession();
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+
   const handleGoogleLogin = () => {
     signIn();
+  };
+  const redirectToChat = () => {
+    router.push('/chat');
   };
   const handleGoogleLogout = () => {
     signOut();
   };
+
+  useEffect(() => {
+    if (session) {
+      dispatch(actionAddUser(session?.user as IUser));
+    }
+  }, [session]);
+
   if (session) {
     return (
       <section id="login_component" className={styles.loginContainer}>
@@ -29,7 +47,7 @@ const LoginComponent = () => {
           <button
             type="button"
             className={`${styles.logout} ${styles.btnPrimary}`}
-            // onClick={handleGoogleLogout}
+            onClick={redirectToChat}
           >
             chat
           </button>

@@ -9,6 +9,8 @@ const MyApp: FC<any> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  console.log('Prodpd', pageProps, session);
+
   const store = useStore(pageProps.initialReduxState);
   return (
     <Provider store={store}>

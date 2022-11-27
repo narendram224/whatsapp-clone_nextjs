@@ -10,7 +10,7 @@ const Drawer = ({ position }: { position: string }) => {
     (state) => state.app,
   );
   const dispatch = useAppDispatch();
-  console.log('selectedDrawer', selectedDrawer);
+  // console.log('selectedDrawer', selectedDrawer);
 
   const DrawerComponent: any = {
     profile: <ProfileDrawerComponent />,
@@ -22,7 +22,7 @@ const Drawer = ({ position }: { position: string }) => {
     top: styles.topDrawer,
     bottom: styles.bottomDrawer,
   };
-  console.log('styledClass', styledClass[position]);
+  // console.log('styledClass', styledClass[position]);
 
   const wrapperRef = useRef(null);
   const { isOutSideClicked, setIsOutSideClicked } =

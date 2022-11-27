@@ -10,10 +10,12 @@ import {
   handleChangeDrawer,
   saveSelectedDrawer,
 } from 'src/redux/reducers/appReducer';
+import { useSession } from 'next-auth/react';
 import styles from './SideMenuHeader.module.scss';
 
 const SideMenuHeader = () => {
   const dispatch = useDispatch();
+  const { data: session } = useSession();
 
   const handleOpenProfileSection = () => {
     dispatch(handleChangeDrawer(true));
@@ -25,7 +27,7 @@ const SideMenuHeader = () => {
       <Drawer position="left" />
       <div className={styles.userProfileContainer}>
         <img
-          src={ASSETS_OBJ.user}
+          src={session?.user?.image || ASSETS_OBJ.user}
           alt="user profile"
           className={styles.profileImg}
           onClick={handleOpenProfileSection}

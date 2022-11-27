@@ -22,3 +22,8 @@ export { default as DrawerHeader } from './ChatPageComponent/DrawerHeader/Drawer
 export { default as ProfileDrawerComponent } from './ChatPageComponent/ProfileDrawerComponent/ProfileDrawerComponent';
 export { default as ProfilePictureComponent } from './ChatPageComponent/ProfilePictureComponent/ProfilePictureComponent';
 export { default as EditProfileInfo } from './ChatPageComponent/EditProfileInfo/EditProfileInfo';
+
+export { default as ChatBox } from './ChatPageComponent/ChatBox/ChatBox';
+export { default as ChatBoxHeader } from './ChatPageComponent/ChatBoxHeader/ChatBoxHeader';
+export { default as ChatBoxFooter } from './ChatPageComponent/ChatBoxFooter/ChatBoxFooter';
+export { default as Chat } from './ChatPageComponent/Chat/Chat';
