@@ -1,0 +1,55 @@
+@import 'styles/variables.scss';
+.uploaderModel {
+  position: absolute;
+}
+.uploaderContainer {
+  max-width: 300px;
+  .uploaderIcon {
+    cursor: pointer;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+    min-width: 250px;
+    input {
+      border: none;
+      border-radius: 10px;
+      background-color: #eaeaea;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      outline: none;
+    }
+    .submit {
+      color: $primary;
+      width: 30px;
+      cursor: pointer;
+    }
+  }
+  .modelBody {
+    max-width: 300px;
+
+    p {
+      margin: 0;
+      span {
+        color: $primary;
+      }
+    }
+  }
+  .spin {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

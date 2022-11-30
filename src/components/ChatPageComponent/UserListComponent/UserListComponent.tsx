@@ -9,10 +9,9 @@ const UserListComponent = ({ searchTerm }: any) => {
   const dispatch = useAppDispatch();
   const handleSelectedUser = (e: any) => {
     // dispatch();
-    console.log('Event received', e);
   };
   useEffect(() => {
-    if (userList) dispatch(actionGetAllUser(searchTerm));
+    if (searchTerm) dispatch(actionGetAllUser(searchTerm));
   }, [searchTerm]);
 
   return (

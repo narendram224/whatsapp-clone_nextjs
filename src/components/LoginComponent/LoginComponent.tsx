@@ -24,11 +24,11 @@ const LoginComponent = () => {
     signOut();
   };
 
-  useEffect(() => {
-    if (session) {
-      dispatch(actionAddUser(session?.user as IUser));
-    }
-  }, [session]);
+  // useEffect(() => {
+  //   if (session) {
+  //     dispatch(actionAddUser(session?.user as IUser));
+  //   }
+  // }, [session]);
 
   if (session) {
     return (

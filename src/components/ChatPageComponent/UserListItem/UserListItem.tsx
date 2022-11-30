@@ -4,7 +4,7 @@ import {
   MessageTime,
   ReadMessageTick,
 } from 'src/components';
-import { actionFetchUserConversion } from 'src/redux/actions/authActions';
+import { actionAddUserConversion } from 'src/redux/actions/authActions';
 import { saveSelectedUser } from 'src/redux/reducers/authReducer';
 import { useAppDispatch, useAppSelector } from 'src/redux/store';
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
@@ -17,12 +17,11 @@ const UserListItem = ({ user }: any) => {
   const handleSelectedUser = () => {
     dispatch(saveSelectedUser(user));
     dispatch(
-      actionFetchUserConversion({
+      actionAddUserConversion({
         senderId: userInfo?.id,
         receiverId: user?.id,
       }),
     );
-    console.log('Event received', user);
   };
   return (
     <div className={styles.userListItem}>

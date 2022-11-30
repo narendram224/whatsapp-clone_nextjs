@@ -9,13 +9,10 @@ export const useOutsideAlerter = (ref: any) => {
   const [isOutSideClicked, setIsOutSideClicked] = useState<any>(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log('ref', ref);
     /**
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event: any) {
-      console.log('evet clicked outside of element');
-
       if (ref.current && !ref.current.contains(event.target)) {
         setIsOutSideClicked(true);
         dispatch(saveSelectedDrawer(null));

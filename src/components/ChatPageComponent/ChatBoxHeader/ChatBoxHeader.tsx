@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { MoreVertical, Search } from 'react-feather';
 import Typography from 'src/components/shared/Typography/Typography';
 import { useAppSelector } from 'src/redux/store';
@@ -5,7 +6,7 @@ import { ASSETS_OBJ } from 'src/utils/assetsObject';
 import styles from './ChatBoxHeader.module.scss';
 
 const ChatBoxHeader = () => {
-  const { selectedUser } = useAppSelector((state) => state.auth);
+  const { selectedUser, activeUsers } = useAppSelector((state) => state.auth);
 
   return (
     <header id="chatbox-header" className={styles.chatBoxHeaderContainer}>
@@ -21,7 +22,9 @@ const ChatBoxHeader = () => {
         </div>
         <Typography type="h6">{selectedUser?.name}</Typography>
         <Typography type="p" className={styles.online}>
-          online
+          {activeUsers.find((user: any) => user._id === selectedUser._id)
+            ? 'online'
+            : 'offline'}
         </Typography>
       </div>
       <div className={styles.moreOption}>

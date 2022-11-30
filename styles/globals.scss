@@ -115,3 +115,10 @@ button {
   padding: 10px;
   z-index: 2;
 }
+
+.showContainer {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 1.25s 0s, transform 1.25s;
+}

@@ -27,3 +27,5 @@ export { default as ChatBox } from './ChatPageComponent/ChatBox/ChatBox';
 export { default as ChatBoxHeader } from './ChatPageComponent/ChatBoxHeader/ChatBoxHeader';
 export { default as ChatBoxFooter } from './ChatPageComponent/ChatBoxFooter/ChatBoxFooter';
 export { default as Chat } from './ChatPageComponent/Chat/Chat';
+export { default as FileUploaded } from './ChatPageComponent/FileUploaded/FileUploaded';
+export { default as Model } from './shared/Model/Model';
