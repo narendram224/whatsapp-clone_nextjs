@@ -9,6 +9,7 @@
   padding: 0.8rem;
   align-items: center;
   margin-top: 0.3rem;
+  position: relative;
   &:first-child {
     border-top: 1px solid #eee;
   }
@@ -48,5 +49,42 @@
       left: -14px;
       top: 24px;
     }
+  }
+  .onlineCircle {
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 16px;
+    left: 41px;
+    animation: pulse 2s infinite;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(44, 204, 129, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(44, 204, 100, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(44, 204, 113, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(44, 204, 129, 0.4);
+    box-shadow: 0 0 0 0 rgba(44, 204, 129, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(44, 204, 100, 0);
+    box-shadow: 0 0 0 10px rgba(44, 204, 100, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(44, 204, 113, 0);
+    box-shadow: 0 0 0 0 rgba(44, 204, 113, 0);
   }
 }

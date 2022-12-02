@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/jsx-props-no-spreading */
 import 'styles/globals.scss';
 import { Provider } from 'react-redux';
-import { createContext, FC, useEffect, useRef } from 'react';
+import { createContext, FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useStore } from 'src/redux/store';
 import { SessionProvider } from 'next-auth/react';
 import io from 'socket.io-client';
@@ -14,12 +15,25 @@ const MyApp: FC<any> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+
+   const [state, setState] = useState({page: {}})
+  const setPageContext = useCallback(
+    newState => {
+      setState(newState)
+    },
+    [state, setState],
+  )
+  const getContextValue = useCallback(
+    () => state,
+    [state],
+  )
+
   const socket = useRef<any>(null);
   const socketInitializer = async () => {
     socket.current = io(SOCKET_URL);
 
     socket.current.on('connect', () => {
-      // console.log('connected');
+      setPageContext(socket.current)
     });
   };
   const disconnectSocket = () => {
@@ -33,11 +47,13 @@ const MyApp: FC<any> = ({
       disconnectSocket();
     };
   }, []);
+ 
+  
 
   const store = useStore(pageProps.initialReduxState);
   return (
     <Provider store={store}>
-      <UserContext.Provider value={socket}>
+      <UserContext.Provider value={getContextValue()}>
         <SessionProvider session={session}>
           <Component {...pageProps} />
         </SessionProvider>

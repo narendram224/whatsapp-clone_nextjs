@@ -14,6 +14,8 @@ export const getConversationMessages = (conversationId: string) =>
   axiosGet(`${API_VERSION}/message/conversation/${conversationId}`);
 export const uploadFileToApi = (payload: FormData) =>
   axiosPost(`${API_VERSION}/file-upload`, payload);
+export const lastMessage = (conversationId: string) =>
+  axiosGet(`${API_VERSION}/message/lastMessage/${conversationId}`);
 
 export const getConversation = ({
   senderId,

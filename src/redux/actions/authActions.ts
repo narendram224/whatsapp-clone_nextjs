@@ -6,6 +6,7 @@ import {
   getAllUsers,
   getConversation,
   getConversationMessages,
+  sendMsgToApi,
   uploadFileToApi,
 } from 'src/services/api';
 
@@ -38,6 +39,13 @@ export const actionAddUserConversion: any = createAsyncThunk(
     return response;
   },
 );
+export const actionAddEmitMsg: any = createAsyncThunk(
+  'auth/addEmitMsg',
+  async (query?: string) => {
+    const response = await sendMsgToApi(query);
+    return response;
+  },
+);
 
 export const actionFetchUserConversion: any = createAsyncThunk(
   'auth/fetchUserConversion',
@@ -50,7 +58,6 @@ export const actionFetchUserConversion: any = createAsyncThunk(
 export const actionFetchMessages: any = createAsyncThunk(
   'auth/fetchConversionMessage',
   async (conversationId: string) => {
-    console.log(conversationId);
     const response = await getConversationMessages(conversationId);
     return response;
   },

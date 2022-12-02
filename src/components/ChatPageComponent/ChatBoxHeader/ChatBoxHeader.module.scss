@@ -24,6 +24,15 @@
     }
     .online {
       grid-column: 2;
+      .border {
+        background-color: #02a8f4;
+        width: 2px;
+        height: 12px;
+        display: inline-block;
+        margin-left: 4px;
+        margin-top: 4px;
+        margin-right: 4px;
+      }
     }
     .profile {
       grid-column-start: 1;

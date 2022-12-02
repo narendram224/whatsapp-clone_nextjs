@@ -4,6 +4,7 @@ import {
   SideMenuHeader,
   UserListComponent,
 } from 'src/components';
+
 import styles from './LeftSideChatComponent.module.scss';
 
 const LeftSideChatComponent = () => {

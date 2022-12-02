@@ -1,12 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import { UserContext } from 'pages/_app';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { ArrowDownCircle, FileText } from 'react-feather';
 import ReadMessageTick from 'src/components/shared/ReadMessageTick/ReadMessageTick';
-import {
-  saveActiveUsers,
-  saveUserMessageSocket,
-} from 'src/redux/reducers/authReducer';
+import { saveUserMessageSocket } from 'src/redux/reducers/authReducer';
 import { useAppDispatch, useAppSelector } from 'src/redux/store';
 import {
   docChecker,
@@ -16,24 +13,24 @@ import {
 import styles from './Chat.module.scss';
 
 const MessageChat = ({ message, createdAt }: any) => {
-  // const messageTimeInMints = getMinutesBetweenDates(
-  //   new Date(createdAt),
-  //   new Date(),
-  // );
+  const messageTimeInMints = getMinutesBetweenDates(
+    new Date(createdAt),
+    new Date(),
+  );
   return (
     <>
       <p>{message}</p>
       <ReadMessageTick isActive className={styles.tickContent} />
-      {/* <small className={styles.timer}>{messageTimeInMints}</small> */}
+      <small className={styles.timer}>{messageTimeInMints}</small>
     </>
   );
 };
 
 const ImageChat = ({ createdAt, message, imageText, extension }: any) => {
-  // const messageTimeInMints = getMinutesBetweenDates(
-  //   new Date(createdAt),
-  //   new Date(),
-  // );
+  const messageTimeInMints = getMinutesBetweenDates(
+    new Date(createdAt),
+    new Date(),
+  );
   return (
     <div className={styles.imageMessgae}>
       {docChecker(extension) ? (
@@ -57,7 +54,7 @@ const ImageChat = ({ createdAt, message, imageText, extension }: any) => {
         onClick={(e) => downloadMedia(e, message)}
       />
       <ReadMessageTick isActive className={styles.tickContent} />
-      {/* <small className={styles.timer}>{messageTimeInMints}</small> */}
+      <small className={styles.timer}>{messageTimeInMints}</small>
     </div>
   );
 };
@@ -85,9 +82,7 @@ const Chat = () => {
     (state) => state.auth,
   );
   const dispatch = useAppDispatch();
-  const contextData = useContext(UserContext);
-  const [currentMsg, setcurrentMsg] = useState([]);
-  const socket = contextData?.current;
+  const socket = useContext(UserContext);
 
   const scrollDiv = useRef<any>();
   const img2 =
@@ -100,8 +95,6 @@ const Chat = () => {
     width: '100%',
     height: '84vh',
   };
-  console.log('socket');
-
   useEffect(() => {
     scrollDiv.current?.scrollIntoView({
       behavior: 'smooth',
@@ -109,32 +102,14 @@ const Chat = () => {
       inline: 'nearest',
     });
   }, [userConversionInfo?.messages]);
-
   useEffect(() => {
-    console.log('user Info', userInfo);
-
-    if (userInfo._id) {
-      socket.emit('add-user', userInfo);
-      socket.on('get-users', (users: any[]) => {
-        console.log('[Online users]', users);
-        dispatch(saveActiveUsers(users));
-      });
-    }
-  }, [userInfo]);
-
-  useEffect(() => {
-    socket.on('receive_message', (msg: any) => {
-      console.log('[Messgae receive message]', msg);
-      setcurrentMsg((pre: any) => [...pre, msg]);
-
-      // dispatch(saveUserMessageSocket(msg));
+    socket.on('receivedMessage', (msg: any) => {
+      dispatch(saveUserMessageSocket(msg));
     });
   }, []);
-  console.log('userConversionInfo', userConversionInfo);
-
   return (
     <div style={bgStyles} className={styles.chat}>
-      {currentMsg?.map((msg: any) => {
+      {userConversionInfo?.messages?.map((msg: any) => {
         return (
           <div key={msg._id}>
             {msg?.senderId === userInfo?.id ? (

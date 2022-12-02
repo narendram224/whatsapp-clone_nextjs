@@ -1,10 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 import { UserContext } from 'pages/_app';
 import { useContext, useEffect, useState } from 'react';
 import { Mic, Smile } from 'react-feather';
+import { useDispatch } from 'react-redux';
 import PrimaryInput from 'src/components/shared/PrimaryInput/PrimaryInput';
-import { saveUserMessageSocket } from 'src/redux/reducers/authReducer';
-import { useAppDispatch, useAppSelector } from 'src/redux/store';
-import { sendMsgToApi } from 'src/services/api';
+import { actionAddEmitMsg } from 'src/redux/actions/authActions';
+import { useAppSelector } from 'src/redux/store';
 import FileUploaded from '../FileUploaded/FileUploaded';
 import styles from './ChatBoxFooter.module.scss';
 
@@ -13,10 +14,8 @@ const ChatBoxFooter = () => {
     (state) => state.auth,
   );
   const [message, setMessage] = useState('');
-  const [incomingMsg, setIncomingMsg] = useState(null);
-  const contextData = useContext(UserContext);
-  const dispatch = useAppDispatch();
-  const socket = contextData?.current;
+  const socket = useContext(UserContext);
+  const dispatch = useDispatch();
 
   const sendMessage = async (e: any) => {
     const msgInfo = {
@@ -26,29 +25,29 @@ const ChatBoxFooter = () => {
       receiverId: selectedUser.id,
       // eslint-disable-next-line no-underscore-dangle
       conversationId: conversationInfo._id,
+      createdAt: Date.now(),
     };
-    if (e.which === 13) {
-      socket.emit('send_message', msgInfo);
-
+    if (e.which === 13 && message.length > 0) {
+      socket.emit('sendMessage', msgInfo);
       // await sendMsgToApi(msgInfo);
+      dispatch(actionAddEmitMsg(msgInfo));
+      socket.emit('typing', { removeTyping: true, id: selectedUser.id });
       setMessage('');
     }
   };
   const handleChangeMessage = (e: any) => {
+    if (e.target.value.length > 0)
+      socket.emit('typing', { removeTyping: false, id: selectedUser.id });
+    else {
+      socket.emit('typing', { removeTyping: true, id: selectedUser.id });
+    }
     setMessage(e.target.value);
   };
   useEffect(() => {
-    socket.on('receive_message', (data: any) => {
-      setIncomingMsg(data);
-    });
-  }, []);
-  console.log('incomingMsg', incomingMsg);
-
-  // socket.on('receive_message', (msg: any) => {
-  //   console.log('[Messgae receive message]');
-  //   setIncomingMsg(msg);
-  //   // dispatch(saveUserMessageSocket(msg));
-  // });
+    if (conversationInfo._id) {
+      setMessage('');
+    }
+  }, [conversationInfo._id]);
 
   return (
     <footer id="chatbox-footer" className={styles.chatBoxFooterContainer}>

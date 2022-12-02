@@ -4,6 +4,7 @@ const initialState: any = {
   Info: [],
   selectedDrawer: null,
   isDrawerActive: false,
+  socket: {},
 };
 
 export const appSlice = createSlice({
@@ -15,6 +16,9 @@ export const appSlice = createSlice({
     },
     saveDeviceInfo: (state, action: PayloadAction<Object>) => {
       state.deviceInfo = action.payload;
+    },
+    saveSocketInfo: (state, action: PayloadAction<Object>) => {
+      state.socket = action.payload;
     },
     saveSelectedDrawer: (state, action: PayloadAction<string | null>) => {
       state.selectedDrawer = action.payload;
@@ -28,7 +32,12 @@ export const appSlice = createSlice({
   extraReducers: () => {},
 });
 
-export const { save, saveDeviceInfo, saveSelectedDrawer, handleChangeDrawer } =
-  appSlice.actions;
+export const {
+  save,
+  saveDeviceInfo,
+  saveSelectedDrawer,
+  handleChangeDrawer,
+  saveSocketInfo,
+} = appSlice.actions;
 
 export default appSlice.reducer;

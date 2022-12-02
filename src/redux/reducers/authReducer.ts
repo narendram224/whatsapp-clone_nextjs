@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import {
+  actionAddEmitMsg,
   actionAddUser,
   actionAddUserConversion,
   actionFetchMessages,
@@ -23,6 +24,7 @@ const initialState: any = {
   conversationInfo: {},
   fileUrl: null,
   activeUsers: [],
+  UsersTypingList: [],
 
   selectedUser: {},
 };
@@ -45,6 +47,12 @@ export const authSlice = createSlice({
     },
     saveUserMessageSocket: (state, action: PayloadAction<any>) => {
       state.userConversionInfo.messages.push(action.payload);
+    },
+    saveUserTypingList: (state, action: PayloadAction<any>) => {
+      state.userTypingList.push(action.payload);
+    },
+    removeUserTypingList: (state, action: PayloadAction<any>) => {
+      state.userTypingList.filter((item: string) => item !== action.payload);
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -150,6 +158,26 @@ export const authSlice = createSlice({
       )
       .addCase(
         actionFetchMessages.rejected,
+        (state, { payload }: PayloadAction<any>) => {
+          state.loadingUserConversion = false;
+          state.errorUserList = true;
+          state.message = payload || '';
+        },
+      );
+    builder
+      .addCase(actionAddEmitMsg.pending, (state) => {
+        state.loadingUserConversion = true;
+      })
+      .addCase(
+        actionAddEmitMsg.fulfilled,
+        (state, { payload }: PayloadAction<any>) => {
+          // When the API call is successful and we get some data,the data becomes the `fulfilled` action payload
+          state.loadingUserConversion = false;
+          state.userConversionInfo.messages.push(payload.data);
+        },
+      )
+      .addCase(
+        actionAddEmitMsg.rejected,
         (state, { payload }: PayloadAction<any>) => {
           state.loadingUserConversion = false;
           state.errorUserList = true;
