@@ -31,15 +31,15 @@ const ChatBoxFooter = () => {
       socket.emit('sendMessage', msgInfo);
       // await sendMsgToApi(msgInfo);
       dispatch(actionAddEmitMsg(msgInfo));
-      socket.emit('typing', { removeTyping: true, id: selectedUser.id });
+      socket.emit('typing', { removeTyping: true, id: userInfo.id });
       setMessage('');
     }
   };
   const handleChangeMessage = (e: any) => {
     if (e.target.value.length > 0)
-      socket.emit('typing', { removeTyping: false, id: selectedUser.id });
+      socket.emit('typing', { removeTyping: false, id: userInfo.id });
     else {
-      socket.emit('typing', { removeTyping: true, id: selectedUser.id });
+      socket.emit('typing', { removeTyping: true, id: userInfo.id });
     }
     setMessage(e.target.value);
   };

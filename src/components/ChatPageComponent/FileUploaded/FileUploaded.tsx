@@ -1,10 +1,13 @@
 /* eslint-disable no-underscore-dangle */
-import { useEffect, useRef, useState } from 'react';
+import { UserContext } from 'pages/_app';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Loader, Paperclip, Send } from 'react-feather';
+import { useDispatch } from 'react-redux';
 import { Model } from 'src/components';
 import useModel from 'src/hooks/useModel';
+import { actionAddEmitMsg } from 'src/redux/actions/authActions';
 import { useAppSelector } from 'src/redux/store';
-import { sendMsgToApi, uploadFileToApi } from 'src/services/api';
+import { uploadFileToApi } from 'src/services/api';
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
 import styles from './FileUploaded.module.scss';
 
@@ -17,6 +20,8 @@ const FileUploaded = () => {
   );
   const [defaultUserImage, setDefaultUserImage] = useState(ASSETS_OBJ.user);
   const { handleToggleModel } = useModel();
+  const socket = useContext(UserContext);
+  const dispatch = useDispatch();
 
   const inputRef = useRef<any>();
 
@@ -44,7 +49,8 @@ const FileUploaded = () => {
       receiverId: selectedUser.id,
       conversationId: conversationInfo._id,
     };
-    await sendMsgToApi(reqObject);
+    dispatch(actionAddEmitMsg(reqObject));
+    socket.emit('sendMessage', { ...reqObject, createdAt: Date.now() });
     setLoader(false);
     handleToggleModel();
     setSelectedFile('');

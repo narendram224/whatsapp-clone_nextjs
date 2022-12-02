@@ -26,14 +26,22 @@ const MessageChat = ({ message, createdAt }: any) => {
   );
 };
 
-const ImageChat = ({ createdAt, message, imageText, extension }: any) => {
+const ImageChat = ({
+  createdAt,
+  message,
+  imageText,
+  extension,
+  ...props
+}: any) => {
   const messageTimeInMints = getMinutesBetweenDates(
     new Date(createdAt),
     new Date(),
   );
+  console.log('Extenstion: ', props);
+
   return (
     <div className={styles.imageMessgae}>
-      {docChecker(extension) ? (
+      {docChecker(extension, message?.split('/')?.pop()) ? (
         <>
           <FileText size={20} />
           <p className={styles.fileName}>{message?.split('/')?.pop()}</p>
@@ -60,6 +68,8 @@ const ImageChat = ({ createdAt, message, imageText, extension }: any) => {
 };
 
 const msgType = ({ type, ...props }: any) => {
+  console.log('[props]', props);
+
   switch (type) {
     case 'message':
       return <MessageChat {...props} />;

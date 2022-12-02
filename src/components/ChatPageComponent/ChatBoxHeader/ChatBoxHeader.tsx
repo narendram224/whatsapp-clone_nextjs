@@ -8,15 +8,13 @@ import { ASSETS_OBJ } from 'src/utils/assetsObject';
 import styles from './ChatBoxHeader.module.scss';
 
 const ChatBoxHeader = () => {
-  const { selectedUser, activeUsers, userInfo } = useAppSelector(
-    (state) => state.auth,
-  );
+  const { selectedUser, activeUsers } = useAppSelector((state) => state.auth);
   const [isTyping, setIsTyping] = useState(false);
   const socket = useContext(UserContext);
 
   useEffect(() => {
     socket.on('typingResponse', (data: string) => {
-      setIsTyping(userInfo.id === data);
+      setIsTyping(selectedUser.id === data);
     });
     socket.on('typingRemove', () => {
       setIsTyping(false);

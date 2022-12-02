@@ -38,7 +38,10 @@ export const downloadMedia = async (e: any, originalFile: string) => {
   }
 };
 
-export const docChecker = (extension: string) => {
+export const docChecker = (extension: string, fileName?: string) => {
   const match = ['jpeg', 'jpg', 'png', 'gif'];
-  return match.indexOf(extension) === -1;
+  if (extension) return match.indexOf(extension) === -1;
+
+  const extens: any = fileName?.split('.').pop();
+  return match.indexOf(extens) === -1;
 };
