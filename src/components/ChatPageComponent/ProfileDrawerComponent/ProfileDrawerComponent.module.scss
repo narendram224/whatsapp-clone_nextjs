@@ -1,0 +1,10 @@
+@import 'styles/variables.scss';
+.profileDrawerContainer {
+  // display: flex;
+  background-color: $secondary;
+  .info {
+    font-size: 0.82rem;
+    padding: 0rem 2rem 1rem 1.6rem;
+    color: $secondaryGrey;
+  }
+}

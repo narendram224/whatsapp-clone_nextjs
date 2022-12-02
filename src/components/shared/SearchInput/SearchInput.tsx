@@ -5,7 +5,7 @@ import styles from './SearchInput.module.scss';
 
 interface ISearchInput {
   className?: any;
-  [key: string]: string;
+  [key: string]: any;
 }
 
 const SearchInput: FC<ISearchInput> = ({ className, ...props }) => {

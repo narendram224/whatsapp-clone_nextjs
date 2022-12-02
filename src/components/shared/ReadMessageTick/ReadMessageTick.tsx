@@ -12,12 +12,12 @@ const ReadMessageTick: FC<IReadTick> = ({ isActive, className }) => {
     <div className={`${className}`}>
       <section className={styles.tickActive}>
         <Check
-          size={24}
+          size={18}
           color={isActive ? '#03a9f4' : 'gray'}
           className={styles.tickicon}
         />
         <Check
-          size={20}
+          size={18}
           color={isActive ? '#03a9f4' : 'gray'}
           className={styles.tickicon2}
         />

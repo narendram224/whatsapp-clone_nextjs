@@ -9,6 +9,14 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      session.accessToken = token.accessToken;
+      session.user.id = token.sub;
+      return session;
+    },
+  },
+
   secret: process.env.JWT_SECRET,
 };
 

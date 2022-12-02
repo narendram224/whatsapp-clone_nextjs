@@ -1,0 +1,56 @@
+@import 'styles/variables.scss';
+.chatBoxHeaderContainer {
+  height: 62px;
+  width: 100%;
+  // margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: $secondary;
+  .statusContainer {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: 2;
+    p {
+      margin: 0;
+      margin: 0;
+      line-height: 1rem;
+    }
+    h6 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1rem;
+    }
+    .online {
+      grid-column: 2;
+      .border {
+        background-color: #02a8f4;
+        width: 2px;
+        height: 12px;
+        display: inline-block;
+        margin-left: 4px;
+        margin-top: 4px;
+        margin-right: 4px;
+      }
+    }
+    .profile {
+      grid-column-start: 1;
+      grid-row-end: span 2;
+      .profilePicture {
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+  .moreOption {
+    display: flex;
+    gap: 0.8rem;
+
+    & > svg {
+      // padding-left: 1rem;
+      cursor: pointer;
+      color: $darkGrayColor;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+.drawerHeaderContainer {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  background-color: $primary;
+  color: $white;
+  padding: 1rem;
+  gap: 1.4rem;
+
+  h2 {
+    margin: 0;
+    line-height: 2rem;
+    font-weight: 400;
+    font-size: 1.3rem;
+  }
+  .backBtn {
+    color: $white;
+    cursor: pointer;
+  }
+}
