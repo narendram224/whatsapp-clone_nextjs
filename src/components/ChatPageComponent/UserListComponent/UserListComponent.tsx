@@ -1,6 +1,6 @@
-import { UserContext } from 'pages/_app';
 import { useContext, useEffect, useState } from 'react';
 import { UserListItem } from 'src/components';
+import { SocketContext } from 'src/context/VideoCallContext';
 import { actionGetAllUser } from 'src/redux/actions/authActions';
 import { useAppDispatch, useAppSelector } from 'src/redux/store';
 import styles from './UserListComponent.module.scss';
@@ -11,7 +11,7 @@ const UserListComponent = ({ searchTerm }: any) => {
   const [isTyping, setIsTyping] = useState<any>({});
   const [lastMessage, setLastMessage] = useState<any>({});
 
-  const socket = useContext(UserContext);
+  const { socket } = useContext(SocketContext);
 
   useEffect(() => {
     if (searchTerm) dispatch(actionGetAllUser(searchTerm));

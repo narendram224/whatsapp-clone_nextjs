@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-import { UserContext } from 'pages/_app';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Loader, Paperclip, Send } from 'react-feather';
 import { useDispatch } from 'react-redux';
 import { Model } from 'src/components';
+import { SocketContext } from 'src/context/VideoCallContext';
 import useModel from 'src/hooks/useModel';
 import { actionAddEmitMsg } from 'src/redux/actions/authActions';
 import { useAppSelector } from 'src/redux/store';
@@ -20,7 +20,8 @@ const FileUploaded = () => {
   );
   const [defaultUserImage, setDefaultUserImage] = useState(ASSETS_OBJ.user);
   const { handleToggleModel } = useModel();
-  const socket = useContext(UserContext);
+  const { socket } = useContext(SocketContext);
+
   const dispatch = useDispatch();
 
   const inputRef = useRef<any>();

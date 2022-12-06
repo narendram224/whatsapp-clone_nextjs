@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
-import { UserContext } from 'pages/_app';
 import { useContext, useEffect, useRef } from 'react';
 import { ArrowDownCircle, FileText } from 'react-feather';
 import ReadMessageTick from 'src/components/shared/ReadMessageTick/ReadMessageTick';
+import { SocketContext } from 'src/context/VideoCallContext';
 import { saveUserMessageSocket } from 'src/redux/reducers/authReducer';
 import { useAppDispatch, useAppSelector } from 'src/redux/store';
 import {
@@ -26,18 +26,11 @@ const MessageChat = ({ message, createdAt }: any) => {
   );
 };
 
-const ImageChat = ({
-  createdAt,
-  message,
-  imageText,
-  extension,
-  ...props
-}: any) => {
+const ImageChat = ({ createdAt, message, imageText, extension }: any) => {
   const messageTimeInMints = getMinutesBetweenDates(
     new Date(createdAt),
     new Date(),
   );
-  console.log('Extenstion: ', props);
 
   return (
     <div className={styles.imageMessgae}>
@@ -68,8 +61,6 @@ const ImageChat = ({
 };
 
 const msgType = ({ type, ...props }: any) => {
-  console.log('[props]', props);
-
   switch (type) {
     case 'message':
       return <MessageChat {...props} />;
@@ -92,7 +83,7 @@ const Chat = () => {
     (state) => state.auth,
   );
   const dispatch = useAppDispatch();
-  const socket = useContext(UserContext);
+  const { socket } = useContext(SocketContext);
 
   const scrollDiv = useRef<any>();
   const img2 =

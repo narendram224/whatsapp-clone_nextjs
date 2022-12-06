@@ -14,7 +14,6 @@ const ChatBox = () => {
     (state) => state.auth,
   );
   const dispatch = useAppDispatch();
-  // const { socket } = useContext(UserContext);
 
   useEffect(() => {
     if (selectedUser.id) {

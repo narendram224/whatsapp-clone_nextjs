@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-import { UserContext } from 'pages/_app';
 import { useContext, useEffect, useState } from 'react';
 import { Mic, Smile } from 'react-feather';
 import { useDispatch } from 'react-redux';
 import PrimaryInput from 'src/components/shared/PrimaryInput/PrimaryInput';
+import { SocketContext } from 'src/context/VideoCallContext';
 import { actionAddEmitMsg } from 'src/redux/actions/authActions';
 import { useAppSelector } from 'src/redux/store';
 import FileUploaded from '../FileUploaded/FileUploaded';
@@ -14,7 +14,8 @@ const ChatBoxFooter = () => {
     (state) => state.auth,
   );
   const [message, setMessage] = useState('');
-  const socket = useContext(UserContext);
+  const { socket } = useContext(SocketContext);
+
   const dispatch = useDispatch();
 
   const sendMessage = async (e: any) => {

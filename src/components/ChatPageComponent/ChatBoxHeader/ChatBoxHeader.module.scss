@@ -52,5 +52,28 @@
       cursor: pointer;
       color: $darkGrayColor;
     }
+    .mic {
+      // #04BF00
+      // #015D00
+
+      //       #0BAB64
+      //       #3BB78F
+      // background: #11998e; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #11998e,
+        #38ef7d
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #11998e, #38ef7d);
+      color: #016305;
+
+      padding: 0.4rem;
+      border-radius: 10px;
+      width: 70px;
+      transition: transform 500ms;
+      &:hover {
+        transform: translateY(-10px);
+      }
+    }
   }
 }

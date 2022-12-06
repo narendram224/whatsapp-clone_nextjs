@@ -1,0 +1,65 @@
+.pickPhon {
+  background: #11998e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #38ef7d,
+    #11998e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #38ef7d,
+    #11998e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  border-radius: 8px;
+  width: 100px;
+  height: 29px;
+  padding: 0.34rem;
+  cursor: pointer;
+}
+
+.bounce2 {
+  animation: bounce2 2s ease infinite;
+}
+@keyframes bounce2 {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+}
+.rejectCall {
+  background: #ed213a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  border-radius: 8px;
+  width: 100px;
+  height: 29px;
+  padding: 0.34rem;
+  cursor: pointer;
+}
+.tosterClass {
+  // border: 1px solid gray;
+  padding: 16px;
+  color: #38ef7d;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  min-height: 70px;
+}
