@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
-import { UserContext } from 'pages/_app';
 import { useContext, useEffect, useState } from 'react';
-import { MoreVertical, Search } from 'react-feather';
+import { MoreVertical, Phone, Search } from 'react-feather';
 import Typography from 'src/components/shared/Typography/Typography';
+import { SocketContext } from 'src/context/VideoCallContext';
 import { useAppSelector } from 'src/redux/store';
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
 import styles from './ChatBoxHeader.module.scss';
@@ -10,7 +10,7 @@ import styles from './ChatBoxHeader.module.scss';
 const ChatBoxHeader = () => {
   const { selectedUser, activeUsers } = useAppSelector((state) => state.auth);
   const [isTyping, setIsTyping] = useState(false);
-  const socket = useContext(UserContext);
+  const { socket, getMediaPermissions } = useContext(SocketContext);
 
   useEffect(() => {
     socket.on('typingResponse', (data: string) => {
@@ -20,6 +20,9 @@ const ChatBoxHeader = () => {
       setIsTyping(false);
     });
   }, [socket]);
+  const openVideoCallModel = () => {
+    getMediaPermissions();
+  };
   return (
     <header id="chatbox-header" className={styles.chatBoxHeaderContainer}>
       <div className={styles.statusContainer}>
@@ -42,6 +45,7 @@ const ChatBoxHeader = () => {
         </Typography>
       </div>
       <div className={styles.moreOption}>
+        <Phone size={34} className={styles.mic} onClick={openVideoCallModel} />
         <Search size={20} />
         <MoreVertical size={20} />
       </div>

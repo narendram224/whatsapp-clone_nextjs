@@ -20,9 +20,11 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
+    "react-hot-toast": "^2.4.0",
     "react-redux": "^8.0.5",
     "redux": "4.1.1",
     "sass": "^1.42.1",
+    "simple-peer": "^9.11.1",
     "socket.io-client": "^4.5.4"
   },
   "eslintConfig": {
@@ -34,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^16.9.1",
     "@types/react": "17.0.37",
+    "@types/simple-peer": "^9.11.5",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "@zeit/next-sass": "^1.0.1",
