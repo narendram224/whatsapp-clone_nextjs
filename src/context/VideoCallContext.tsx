@@ -67,6 +67,7 @@ const ContextProvider = ({ children }: any) => {
     connectionRef.current = peer;
   };
   const callUser = () => {
+    console.log('[Called User Call]');
     const peer = new Peer({
       initiator: true,
       trickle: false,
