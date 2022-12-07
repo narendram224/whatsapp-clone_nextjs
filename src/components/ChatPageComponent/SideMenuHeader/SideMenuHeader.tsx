@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Circle, MessageSquare, MoreVertical, UserPlus } from 'react-feather';
+import { Circle, LogOut, MessageSquare, UserPlus } from 'react-feather';
 import { Drawer } from 'src/components';
 
 import { ASSETS_OBJ } from 'src/utils/assetsObject';
@@ -10,7 +10,7 @@ import {
   handleChangeDrawer,
   saveSelectedDrawer,
 } from 'src/redux/reducers/appReducer';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import styles from './SideMenuHeader.module.scss';
 
 const SideMenuHeader = () => {
@@ -20,6 +20,9 @@ const SideMenuHeader = () => {
   const handleOpenProfileSection = () => {
     dispatch(handleChangeDrawer(true));
     dispatch(saveSelectedDrawer('profile'));
+  };
+  const handleGoogleLogout = () => {
+    signOut();
   };
 
   return (
@@ -37,7 +40,12 @@ const SideMenuHeader = () => {
         <UserPlus size={20} />
         <Circle size={20} />
         <MessageSquare size={20} />
-        <MoreVertical size={20} />
+        <LogOut
+          size={26}
+          className={`${styles.logout} ${styles.btnSecondary}`}
+          onClick={handleGoogleLogout}
+        />
+        {/* <MoreVertical size={20} /> */}
       </div>
     </header>
   );
