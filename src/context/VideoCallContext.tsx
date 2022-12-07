@@ -6,7 +6,9 @@ import { useAppSelector } from 'src/redux/store';
 import { SOCKET_URL } from 'src/utils/constant';
 // import * as io from 'socket.io-client';
 
-const Socket = io(SOCKET_URL);
+const Socket = io(SOCKET_URL, {
+  transports: ['websocket', 'polling', 'flashsocket'],
+});
 const SocketContext = createContext<any>('');
 
 const ContextProvider = ({ children }: any) => {
