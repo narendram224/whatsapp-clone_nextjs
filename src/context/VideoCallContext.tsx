@@ -54,12 +54,9 @@ const ContextProvider = ({ children }: any) => {
       stream,
     });
     peer.on('signal', (data) => {
-      console.log('[Answer Call]');
       Socket.emit('answerCall', { signal: data, to: call.from });
     });
     peer.on('stream', (streamInfo: any) => {
-      console.log('[Streaming Message answered call]');
-
       userVideo.current.srcObject = streamInfo;
     });
 
@@ -79,16 +76,11 @@ const ContextProvider = ({ children }: any) => {
         from: userInfo.id,
         name: userInfo.name,
       });
-      console.log('[calling user Call]', selectedUser);
     });
     peer.on('stream', (streaming: any) => {
-      console.log('[Streaming Message called call]');
-
       userVideo.current.srcObject = streaming;
     });
     Socket.on('callAccepted', (signal: any) => {
-      console.log('[Answer accepted]');
-
       setCallAccepted(true);
       peer.signal(signal);
     });
