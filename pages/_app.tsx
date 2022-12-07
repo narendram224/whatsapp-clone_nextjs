@@ -27,7 +27,7 @@ const MyApp: FC<any> = ({
         <meta property="og:title" content="Social Title for Cool Page" />
         <meta
           property="og:description"
-          content="Whatsapp clone only for testing"
+          content="Whatsapp clone only for testing in prod"
         />
         <meta
           property="og:image"
