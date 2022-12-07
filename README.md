@@ -32,6 +32,9 @@ MIT project feel free to downlaod and contribute.
 
 </div>
 
+## Once you open the Live link then
+<img width="1440" alt="Screenshot 2022-12-07 at 2 22 26 PM" src="https://user-images.githubusercontent.com/35723915/206132703-fdedd191-a648-4209-9026-4907c368aa57.png">
+
 ## Getting started
 
 [LIVE URL](https://whatsapp-clone-chi-drab.vercel.app/)
