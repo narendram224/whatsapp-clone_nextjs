@@ -40,7 +40,9 @@ export const authSlice = createSlice({
       state.selectedUser = action.payload;
     },
     saveAllUsers: (state, action: PayloadAction<any>) => {
-      state.userList = action.payload;
+      state.userList = action.payload?.filter(
+        (user: any) => user?.id !== state?.userInfo?.id,
+      );
     },
     saveActiveUsers: (state, action: PayloadAction<any>) => {
       state.activeUsers = action.payload;
