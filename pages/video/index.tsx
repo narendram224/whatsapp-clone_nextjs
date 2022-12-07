@@ -117,11 +117,9 @@ const VideoPage = () => {
     }
   }, [socket]);
   useEffect(() => {
-    console.log('[Socket]', socket, userInfo);
     if (userInfo._id && socket?.emit) {
       socket?.emit('add-user', userInfo);
       socket?.on('get-users', (users: any[]) => {
-        console.log('[Online users]', users);
         dispatch(saveActiveUsers(users));
       });
     }
