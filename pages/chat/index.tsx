@@ -29,10 +29,10 @@ export const getServerSideProps = async (context: any) => {
     };
   }
   try {
-    const { data } = await getAllUsers();
     const { data: user } = await addUser(session?.user as IUser);
-    dispatch(saveAllUsers(data?.users));
     dispatch(saveUserInfo(user?.user));
+    const { data } = await getAllUsers();
+    dispatch(saveAllUsers(data?.users));
   } catch (e) {
     console.error(e);
     // return {
